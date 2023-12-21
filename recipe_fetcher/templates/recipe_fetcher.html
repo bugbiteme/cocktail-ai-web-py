@@ -33,7 +33,7 @@
     {% if recipe_data %}
         <h2>{{ recipe_data.recipe_name }}</h2>
         <img src="{{ recipe_data.image_url }}" alt="{{ recipe_data.recipe_name }}" class="recipe-image" width="600" height="600">
-        <pre style="font-size: 1.25em;" style="font-weight: bold;">{{ recipe_data.recipe }}</pre>
+        <pre>{{ recipe_data.recipe }}</pre>
     {% endif %}
 
     {% if error %}
