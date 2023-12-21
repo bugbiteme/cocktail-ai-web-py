@@ -1,0 +1,49 @@
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+}
+
+body.dark-mode a {
+    color: #bb86fc; /* Light purple for links */
+}
+
+body.dark-mode header, body.dark-mode footer {
+    background-color: #1e1e1e; /* Slightly lighter dark color for header/footer */
+}
+
+body.dark-mode button {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+body.dark-mode img {
+    /* Optional: Slightly reduce the brightness of images */
+    filter: brightness(80%);
+}
+
+body.dark-mode {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#loadingBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #29d;
+    z-index: 1000; /* to ensure it's on top */
+}
+
+@keyframes loading {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+#loadingAnimation {
+    animation: loading 2s linear infinite;
+}

@@ -1,0 +1,39 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cocktail Recipe AI</title>
+    <link href="{% static 'css/dark_mode.css' %}" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <h1>Cocktail Recipe AI</h1>
+    <form id="recipeForm" method="post">
+        {% csrf_token %}
+        <input type="text" name="prompt" placeholder="Enter cocktail name">
+        <button type="submit">Fetch Recipe</button>
+    </form>
+    
+    <div id="loadingBar" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 4px; background-color: #ccc;">
+        <div id="loadingAnimation" style="height: 100%; width: 0; background-color: #29d;"></div>
+    </div>
+    <script>
+        document.getElementById('recipeForm').onsubmit = function() {
+            document.getElementById('loadingBar').style.display = 'block';
+        };
+    </script>
+    
+
+    {% if recipe_data %}
+        <h2>{{ recipe_data.recipe_name }}</h2>
+        <img src="{{ recipe_data.image_url }}" alt="{{ recipe_data.recipe_name }}" width="600" height="600">
+        <pre>{{ recipe_data.recipe }}</pre>
+    {% endif %}
+
+    {% if error %}
+        <div style="color: red;">
+            {{ error }}
+        </div>
+    {% endif %}
+</body>
+</html>
